@@ -12,48 +12,37 @@ namespace LinkedList
         }
     }
 
-    class LinkedList
+    class Stack
     {
-        private Node head;
+        private Node top;
 
-        public LinkedList()
+        public Stack()
         {
-            head = null!;
+            top = null!;
         }
 
-        public void Insert(int data)
+        public void Push(int data)
         {
             Node newNode = new Node(data);
-            newNode.Next = head;
-            head = newNode;
+            newNode.Next = top;
+            top = newNode;
         }
 
-        public void RemoveDuplicates()
+        public int Pop()
         {
-            HashSet<int> uniqueElements = new HashSet<int>();
-            Node current = head;
-            Node previous = null!;
-
-            while (current != null)
+            if (top == null)
             {
-                if (uniqueElements.Contains(current.Data))
-                {
-                    // Remove duplicate by adjusting pointers
-                    previous.Next = current.Next;
-                }
-                else
-                {
-                    uniqueElements.Add(current.Data);
-                    previous = current;
-                }
-
-                current = current.Next;
+                throw new InvalidOperationException("Stack is empty");
             }
+
+            int data = top.Data;
+            top = top.Next;
+            return data;
         }
 
         public void Display()
         {
-            Node current = head;
+            Node current = top;
 
             while (current != null)
             {
@@ -64,5 +53,4 @@ namespace LinkedList
             Console.WriteLine();
         }
     }
-
 }
