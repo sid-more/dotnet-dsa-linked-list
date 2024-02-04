@@ -4,26 +4,25 @@
     {
         private static void Main(string[] args)
         {
-            LinkedList myList = new LinkedList();
+            Stack myStack = new Stack();
 
-            // Insert elements with duplicates into the linked list
-            myList.Insert(3);
-            myList.Insert(7);
-            myList.Insert(12);
-            myList.Insert(5);
-            myList.Insert(7);
-            myList.Insert(3);
+            // Push elements onto the stack
+            myStack.Push(3);
+            myStack.Push(7);
+            myStack.Push(12);
+            myStack.Push(5);
 
-            // Display the linked list before removing duplicates
-            Console.WriteLine("Linked List elements before removing duplicates:");
-            myList.Display();
+            // Display the stack
+            Console.WriteLine("Stack elements:");
+            myStack.Display();
 
-            // Remove duplicates
-            myList.RemoveDuplicates();
+            // Pop an element from the stack
+            int poppedElement = myStack.Pop();
+            Console.WriteLine($"Popped element: {poppedElement}");
 
-            // Display the linked list after removing duplicates
-            Console.WriteLine("Linked List elements after removing duplicates:");
-            myList.Display();
+            // Display the stack after popping
+            Console.WriteLine("Stack elements after popping:");
+            myStack.Display();
         }
     }
 }
